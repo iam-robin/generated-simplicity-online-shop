@@ -1,12 +1,14 @@
-/*
-*= require_directory ./stylesheets/vendor
- *= require stylesheets/layout
- *= require stylesheets/products
- *= require stylesheets/product
- *= require stylesheets/cart
- *= require stylesheets/contact
+/* 
+  *=require_directory ./stylesheets/vendor
 */
+
 
 /*============================================================
   Custom Styles - add and override styles below.
 ============================================================*/
+
+/*
+  *=require ./stylesheets/general
+  *=require ./stylesheets/stage
+  *=require ./stylesheets/header
+*/

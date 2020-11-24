@@ -147,7 +147,7 @@ $(function() {
       element: $('.content'),
       handler: function(direction) {
         var screenWidth = Waypoint.viewportWidth();
-        if ($('.welcome_image').length && screenWidth > 765) {
+        if (screenWidth > 765) {
           if (direction === 'down') {
             $('header').addClass('background_overlay');
           }

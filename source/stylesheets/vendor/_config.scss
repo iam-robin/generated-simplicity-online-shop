@@ -1,6 +1,8 @@
 @import "compass/css3";
 @import "compass";
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
 $primary-font: #{"{{ theme.primary_font | font_family }}"};
 $secondary-font: #{"{{ theme.secondary_font | font_family }}"};
 
@@ -24,7 +26,7 @@ $footer-icon-color: #{"{{ theme.footer_icon_color }}"};
 $footer-text-color: #{"{{ theme.footer_text_color }}"};
 
 $break-extra-large: 1200px;
-$break-large: 945px;
+$break-large: 1024px;
 $break-medium: 800px;
 $break-small: 668px;
 $break-extra-small: 500px;
