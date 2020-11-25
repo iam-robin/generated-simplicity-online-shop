@@ -59,7 +59,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   color: $color-white;
-  border-radius: 8px;
+  border-radius: 4px;
   @include all-transitions;
   
   &::after {
@@ -74,7 +74,7 @@
   }
 
   &:hover {
-    background-color: $color-grey-dark;
+    background-color: $color-black-hover;
 
     &::after {
       transform: translateX(4px);

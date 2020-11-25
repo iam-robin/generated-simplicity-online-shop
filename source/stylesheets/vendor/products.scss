@@ -1,4 +1,5 @@
 @import "config";
+@import "../settings";
 
 .category_list {
   margin: 0 auto 60px;
@@ -178,7 +179,6 @@
   @include flex-wrap(wrap);
 
   font-size: 0;
-  margin: 0 -10px 10px;
   padding: 0;
   position: relative;
   text-align: center;
@@ -199,23 +199,34 @@
     @include all-transitions;
     @include flexbox;
 
-    padding: 0 10px 40px 10px;
+    margin: 0 32px 64px 0;
     position: relative;
     vertical-align: top;
-    width: 25%;
+    width: calc(33.33% - 21.33px);
 
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    
     @media screen and (max-width: $break-large) {
-      width: 33.33%;
+      margin-right: 32px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
     }
 
     @media screen and (max-width: $break-medium) {
       padding-bottom: 40px !important;
-      width: 50%;
+
+      &:nth-child(2n) {
+        padding-right: 0;
+      }
     }
 
     @media screen and (max-width: $break-small) {
-      padding: 0 0 40px 0;
       width: 100%;
+      margin: 0;
     }
 
     a {
@@ -224,28 +235,59 @@
       text-align: center;
       width: 100%;
 
-      &:hover {
-        opacity: 1;
-      }
-
-      img {
-        @include all-transitions;
-
-        display: block;
-        height: auto;
-        max-width: 100%;
+      .products_imageContainer {
         position: relative;
-        width: 100%;
-        z-index: 1;
+        padding-top: 133%;
+        overflow: hidden;
+
+        .products_overlay {
+          position: absolute;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+          @include transition(0.2s linear);
+
+          svg {
+            opacity: 0;
+            z-index: 2;
+            @include transition(0.2s linear);
+          }
+        }
+
+        .products_overlayBg {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          background-color: $color-primary;
+          opacity: 0;
+          @include transition(0.2s linear);
+        }
+        
+        .products_image {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          background-color: $color-grey-ultra-light;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          @include transition(0.2s linear);
+        }
       }
 
       .product_details {
         @include transition(0.3s linear);
 
         color: $primary-text-color;
-        padding-top: 30px;
+        padding-top: 16px;
         position: relative;
-        text-align: center;
+        text-align: left;
         width: 100%;
         z-index: 2;
 
@@ -259,17 +301,15 @@
         }
 
         .product_name {
-          font-family: $primary-font;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 22px;
           margin: 0;
-          padding: 0 20px;
           position: relative;
         }
 
         .product_status {
-          color: $secondary-text-color;
-          font-size: 10px;
+          color: $color-grey-medium;
+          font-size: 14px;
           letter-spacing: 1px;
           position: absolute;
           text-transform: uppercase;
@@ -278,9 +318,8 @@
         }
 
         .product_price {
-          color: $secondary-text-color;
+          color: $color-grey-medium;
           font-size: 14px;
-          margin: 10px 0 0;
           position: relative;
         }
 
@@ -288,16 +327,6 @@
           bottom: auto;
           opacity: 1;
           position: relative;
-
-          .product_name {
-            font-size: 18px;
-            padding: 0 20px;
-            margin: 0;
-          }
-
-          .product_price {
-            font-size: 14px;
-          }
         }
       }
     }
@@ -353,6 +382,19 @@
             font-size: 14px;
           }
         }
+      }
+    }
+
+    &:hover .products_imageContainer {
+      .products_overlay svg {
+        opacity: 1;
+      }
+      .products_overlayBg {
+        opacity: .8;
+      }
+
+      .products_image {
+        transform: scale(1.05);
       }
     }
   }
