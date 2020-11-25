@@ -6,9 +6,10 @@
   background-color: $color-primary;
   height: 100vh;
   padding: 104px 0;
+  overflow: hidden;
   
   @media screen and (min-width: calc(#{$break-medium + 1px})) {
-    height: 800px;
+    height: calc(100vh - 80px);
   }
 }
 
@@ -18,6 +19,11 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
+  @include all-transitions;
+  
+  @media screen and (min-width: calc(#{$break-medium + 1px})) {
+    height: calc(100% + 60px);
+  }
 }
 
 .stage__text {
@@ -90,6 +96,7 @@
   right: 0;
   top: calc(50% - 300px);
   bottom: calc(50% - 300px);
+  margin-top: 30px;
   padding-left: 100px;
   overflow: hidden;
   

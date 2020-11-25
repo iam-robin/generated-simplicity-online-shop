@@ -524,7 +524,40 @@ h1 {
   }
 }
 
-h2.featured_products {
+h2.home_process {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: $color-black;
+  margin-bottom: 144px;
+  max-width: 655px;
+
+  a {
+    display: inline-block;
+    padding: 0px 4px;
+    color: $color-primary-medium;
+    @include all-transitions;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 4px;
+      transform: translateY(2px);
+      background-color: $color-primary-light;
+      @include all-transitions;
+    }
+
+    &:hover {
+      color: $color-primary;
+      &::after {
+        transform: translateY(0px);
+        background-color: $color-primary-medium;
+      }
+    }
+  }
+}
+
+h3.featured_products {
   font-size: 24px;
   margin: 0 0 24px;
   text-align: left;
@@ -656,14 +689,14 @@ section.content {
   }
 
   &.page-home {
-    padding-top: 290px;
+    padding-top: 144px;
 
     @media screen and (max-width: $break-medium) {
-      padding-top: 160px;
+      padding-top: 104px;
     }
 
     @media screen and (max-width: $break-small) {
-      padding-top: 110px;
+      padding-top: 80px;
     }
   }
 
