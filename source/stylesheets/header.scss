@@ -1,14 +1,22 @@
 @import "vendor/config";
 @import "settings";
 
-.header {
+#home .header {
   background-color: $color-primary;
-  height: 104px;
-  padding: 32px 0;
 
-  .open_menu {
-    @media screen and (min-width: calc(#{$break-medium + 1px})) {
-      display: none;
+  .header__logo svg path {
+    fill: $color-white;
+  }
+
+  .header_navigation li a {
+    color: $color-white;
+  }
+
+  .header_icons li a svg path {
+    stroke: $color-white;
+
+    &.wheel {
+      fill: $color-white;
     }
   }
 
@@ -29,6 +37,34 @@
       &.wheel {
         fill: $color-black;
       }
+    }
+  }
+}
+
+.header {
+  background-color: $color-white;
+  height: 104px;
+  padding: 32px 0;
+
+  .open_menu {
+    @media screen and (min-width: calc(#{$break-medium + 1px})) {
+      display: none;
+    }
+  }
+
+  .header__logo svg path {
+    fill: $color-primary;
+  }
+  
+  .header_navigation li a {
+    color: $color-black;
+  }
+  
+  .header_icons li a svg path {
+    stroke: $color-black;
+  
+    &.wheel {
+      fill: $color-black;
     }
   }
 }
@@ -63,6 +99,25 @@
 
   li {
     display: inline-block;
+
+    &.active {
+        a::after {
+          content: "";
+          display: block;
+          height: 2px;
+          background-color: $color-primary-medium;
+          transform: translateY(-2px);
+          opacity: 1;
+          @include all-transitions;
+        }
+
+        a:hover {
+          &::after {
+            opacity: 1;
+            transform: translateY(-2px);
+          }
+        }
+    }
     
     a {
       display: inline-block;

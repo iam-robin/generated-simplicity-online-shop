@@ -17,17 +17,17 @@
       </a>
 		</div>
 		<ul class="header_navigation">
-			<li>
-				<a href="/products">shop</a>
+			<li class="{% if page.permalink contains 'products' %}active{% endif %}">
+				<a href="/products">Shop</a>
 			</li>
-			<li>
-				<a href="/process">process</a>
+			<li class="{% if page.permalink contains 'process' %}active{% endif %}">
+				<a href="/process">Process</a>
 			</li>
-			<li>
-				<a href="/about">about</a>
+			<li class="{% if page.permalink contains 'about' %}active{% endif %}">
+				<a href="/about">About</a>
 			</li>
-			<li>
-				<a href="/contact">contact</a>
+			<li class="{% if page.permalink contains 'contact' %}active{% endif %}">
+				<a href="/contact">Contact</a>
 			</li>
 		</ul>
     <ul class="header_icons">
