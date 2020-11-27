@@ -1,4 +1,4 @@
-<h1>{% if page.full_url contains "search=" %}Search results{% else %}{{ page.name }}{% endif %}</h1>
+<h1>{% if page.full_url contains "/products" %}All Prints{% else %}{{ page.name }}{% endif %}</h1>
 
 {% if categories.active != blank %}
   <div class="category_list">
@@ -23,7 +23,7 @@
 
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
-    <ul class="product_list {% if paginate.page_size < 4 %}justify_center{% endif %}">
+    <ul class="product_list">
       {% for product in products %}
         <li class="{{ product.css_class }}{% if theme.show_overlay == 'On rollover' %} show_overlay{% endif %}">
           <a href="{{ product.url }}">

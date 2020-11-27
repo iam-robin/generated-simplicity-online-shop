@@ -2,8 +2,8 @@
 @import "../settings";
 
 .category_list {
-  margin: 0 auto 60px;
-  text-align: center;
+  margin-bottom: 56px;
+  text-align: left;
 
   @media screen and (max-width: $break-small) {
     margin-bottom: 40px;
@@ -14,16 +14,17 @@
     li {
       display: inline-block;
       font-size: 0;
+      margin-right: 24px;
 
       &.current a {
-        color: $primary-text-color;
+        color: $color-black;
       }
 
       a {
         display: block;
+        color: $color-grey-medium;
         font-size: 18px;
         line-height: 24px;
-        padding: 0 10px 10px;
       }
     }
 
@@ -185,14 +186,6 @@
 
   @media screen and (max-width: $break-small) {
     margin: 0;
-  }
-
-  &.justify_center {
-    @include justify-content(center);
-
-    @media screen and (max-width: $break-medium) {
-      @include justify-content(flex-start);
-    }
   }
 
   li {
