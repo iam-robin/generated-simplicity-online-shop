@@ -21,7 +21,7 @@
   }
 
   &.background_overlay {
-    background: $color-white;
+    background: $color-white;;
 
     .header__logo svg path {
       fill: $color-primary;
@@ -94,7 +94,6 @@
     width: 1024px;
     left: calc(50% - 512px);
     right: calc(50% - 512px);
-    margin-left: -20px;
   }
 
   li {
@@ -126,7 +125,7 @@
       font-weight: 700;
       line-height: 40px;
       letter-spacing: 1px;
-      padding: 0 20px;
+      padding: 0 24px 0 0;
 
       &::after {
         content: "";

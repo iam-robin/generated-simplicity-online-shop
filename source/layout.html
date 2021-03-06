@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   {{ head_content }}
 </head>
 <body id="{{ page.permalink }}" class="{{ page.category }}{% if page.permalink == 'home' %}{% endif %}">
@@ -20,11 +22,8 @@
 			<li class="{% if page.permalink contains 'products' %}active{% endif %}">
 				<a href="/products">Shop</a>
 			</li>
-			<li class="{% if page.permalink contains 'process' %}active{% endif %}">
-				<a href="/process">Process</a>
-			</li>
-			<li class="{% if page.permalink contains 'about' %}active{% endif %}">
-				<a href="/about">About</a>
+			<li class="{% if page.permalink contains 'faq' %}active{% endif %}">
+				<a href="/faq">FAQ</a>
 			</li>
 			<li class="{% if page.permalink contains 'contact' %}active{% endif %}">
 				<a href="/contact">Contact</a>

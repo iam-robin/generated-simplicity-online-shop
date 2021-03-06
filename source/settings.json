@@ -136,7 +136,7 @@
       "label": "Featured products",
       "type": "select",
       "options": "0..100",
-      "default": 8,
+      "default": 3,
       "description": "The number of featured products on the Home page"
     },
     {

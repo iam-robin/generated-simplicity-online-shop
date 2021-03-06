@@ -46,7 +46,6 @@
 .featured_categories {
   @include pie-clearfix;
 
-  font-family: $primary-font;
   margin: 0 -10px 0;
 
   @media screen and (max-width: $break-small) {
@@ -301,12 +300,9 @@
         }
 
         .product_status {
-          color: $color-grey-medium;
-          font-size: 14px;
           letter-spacing: 1px;
           position: absolute;
           text-transform: uppercase;
-          top: 12px;
           width: 100%;
         }
 
@@ -387,7 +383,7 @@
       }
 
       .products_image {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
     }
   }

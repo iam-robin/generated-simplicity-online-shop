@@ -15,7 +15,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: $primary-text-color;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   overflow-y: scroll;
@@ -81,7 +80,6 @@ header {
   @include transition(background 0.3s linear);
 
   background: $header-background-color;
-  font-family: $primary-font;
   height: 90px;
   left: 0;
   margin: 0;
@@ -197,7 +195,6 @@ header {
     width: 20px;
     background-color: $color-signal;
     color: $color-white;
-    font-family: $secondary-font;
     font-size: 14px;
     border-radius: 100%;
   }
@@ -273,7 +270,6 @@ button, a.button {
   position: relative;
   border: 2px solid $border-color;
   color: $secondary-text-color;
-  font-family: $secondary-font;
   height: 60px;
   margin-bottom: 20px;
   max-width: 300px;
@@ -288,7 +284,6 @@ button, a.button {
     background: none;
     border: 0;
     color: $secondary-text-color;
-    font-family: $secondary-font;
     font-size: 14px;
     height: 100%;
     line-height: 2em;
@@ -508,7 +503,6 @@ button, a.button {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $primary-font;
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -524,7 +518,7 @@ h1 {
   }
 }
 
-h2.home_process {
+h2.home_faq {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.4;
@@ -706,8 +700,8 @@ section.content {
 
   &.page-products {
     @media screen and (max-width: $break-small) {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     h1 {
@@ -726,7 +720,6 @@ footer.footer {
   @include pie-clearfix;
 
   background: $footer-background-color;
-  font-family: $secondary-font;
   bottom: 0;
   min-height: 120px;
   padding: 60px 20px;
@@ -817,7 +810,6 @@ footer.footer {
 
 .home_tagline {
   color: $secondary-text-color;
-  font-family: $secondary-font;
   font-size: 26px;
   line-height: 1.3em;
   margin: 0 auto 200px;
@@ -890,7 +882,6 @@ footer.footer {
         .item_info {
           color: $primary-text-color;
           float: left;
-          font-family: $primary-font;
           font-size: 18px;
           line-height: 22px;
           padding-left: 20px;
@@ -899,7 +890,6 @@ footer.footer {
           > span {
             color: $secondary-text-color;
             display: block;
-            font-family: $secondary-font;
             font-size: 14px;
             line-height: 18px;
             margin-top: 4px;
@@ -908,7 +898,6 @@ footer.footer {
 
         .item_price {
           color: $secondary-text-color;
-          font-family: $secondary-font;
           font-size: 14px;
           margin-top: 2px;
         }

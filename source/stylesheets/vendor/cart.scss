@@ -73,7 +73,6 @@
     }
 
     .item_details {
-      font-family: $primary-font;
       float: left;
       max-width: 500px;
       padding: 0 40px;
@@ -101,7 +100,6 @@
         > span {
           color: $secondary-text-color;
           display: block;
-          font-family: $secondary-font;
           font-size: 18px;
           line-height: 26px;
           margin-top: 6px;

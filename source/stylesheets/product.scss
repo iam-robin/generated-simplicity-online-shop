@@ -16,5 +16,25 @@
 }
 
 .product.sold {
+  .product_price {
+    display: none;
+  }
 
+  .product_status {
+    color: $color-signal;
+    top: 40px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .products_imageContainer::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-grey-ultra-light;
+    opacity: 0.7;
+  }
 }
