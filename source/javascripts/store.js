@@ -53,7 +53,8 @@ var updateCart = function(cart) {
   $container.load("/cart?" + $.now() + " .cart_holder > *", function() {
     if (window_width > 800) {
       if (!$('.mini_cart').is(':visible')) {
-        $('.mini_cart').fadeIn('fast');
+        $('.mini_cart').show();
+        $('body').addClass('mini_cart--open');
       }
     }
   });
@@ -189,7 +190,8 @@ $(function() {
   });
 
   $('.open_cart a').click(function(e) {
-    $('.mini_cart').fadeToggle();
+    $('.mini_cart').show();
+    $('body').addClass('mini_cart--open');
     return false;
   });
 
@@ -273,7 +275,8 @@ $(document).on('keyup',function(e) {
     $('body').removeClass('overlay_open');
     $('.overlay').removeClass('open').removeClass('navigation search');
     if ($(".mini_cart").is(':visible')) {
-      $('.mini_cart').fadeOut();
+      $('.mini_cart').hide();
+      $('body').removeClass('mini_cart--open');
     }
   }
 });
@@ -281,7 +284,8 @@ $(document).click(function(e) {
   var container = $(".mini_cart");
   if (!$('.add-to-cart-button').is(e.target) && !$('.status_text').is(e.target) && !container.is(e.target) && container.has(e.target).length === 0) {
     if (container.is(':visible')) {
-      container.fadeOut();
+      container.hide();
+      $('body').removeClass('mini_cart--open');
     }
   }
 });
