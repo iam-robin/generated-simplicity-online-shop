@@ -1,13 +1,30 @@
+<div class="product__header">
+<p><a href="/products">Shop</a> / {{ product.name }}</p>
 {% if product.previous_product or product.next_product %}
   <ul class="previous_next">
     {% if product.previous_product %}
-      <li class="previous_product"><a href="{{ product.previous_product.url }}" title="View Previous Product"><svg viewBox="0 0 20 20"><path class="st0" d="M10 14.5L3 6.8l1.4-1.3 5.6 6.1 5.6-6.1L17 6.8"/></svg> <span>Previous</span></a></li>
+      <li class="previous_product">
+        <a href="{{ product.previous_product.url }}" title="View Previous Product">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.8125 7L2.1875 7" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.125 10.9375L2.1875 7L6.125 3.0625" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
     {% endif %}
     {% if product.next_product %}
-      <li class="next_product"><a href="{{ product.next_product.url }}" title="View Next Product"><span>Next</span> <svg viewBox="0 0 20 20"><path class="st0" d="M10 14.5L3 6.8l1.4-1.3 5.6 6.1 5.6-6.1L17 6.8"/></svg></a></li>
+      <li class="next_product">
+        <a href="{{ product.next_product.url }}" title="View Next Product">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.1875 7H11.8125" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.875 3.0625L11.8125 7L7.875 10.9375" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>            
+        </a>
+      </li>
     {% endif %}
   </ul>
 {% endif %}
+</div>
 
 <div class="product_images">
   {% for image in product.images %}

@@ -6,12 +6,6 @@
   font-size: 12px;
   margin-bottom: 60px;
 
-  @media screen and (max-width: $break-small) {
-    margin-bottom: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .previous_product {
     float: left;
 
@@ -132,7 +126,7 @@ button.reset-selection-button {
 
   @media screen and (max-width: $break-small) {
     float: none;
-    margin-top: 40px;
+    top: 80px;
     max-width: 100%;
     padding-left: 20px;
     padding-right: 20px;

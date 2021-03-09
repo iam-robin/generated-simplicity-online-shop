@@ -133,6 +133,19 @@
   <div class="mini_cart{% if cart.item_count == 0 %} empty{% endif %}">
     <div class="cart_holder">
       {% if cart.items != blank %}
+        <div class="cart_header">
+          {% if cart.item_count > 1 %}
+            {{ cart.item_count }} items in your cart
+          {% else %}
+            {{ cart.item_count }} item in your cart
+          {% endif %}
+          <span id="close_mini_cart" class="close_mini_cart">
+            <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.59717 10.403L10.4031 3.59705" stroke="black" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.59717 3.59705L10.4031 10.4029" stroke="black" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        </div>
         <div class="item_holder">
           {% for item in cart.items %}
             <a class="cart_item" href="{{ item.product.url }}">
@@ -151,11 +164,11 @@
           <div class="item_subtotal">
             Subtotal <span>{{ cart.total | money: theme.money_format }}</span>
           </div>
-          <a class="button view_bag" href="/cart">View your bag</a>
+          <a class="button view_bag" href="/cart">View your cart</a>
         </div>
       {% else %}
         <div>
-          Your bag is empty
+          Your cart is empty
         </div>
         <a class="button view_bag" href="/products">Start shopping</a>
       {% endif %}

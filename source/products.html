@@ -10,7 +10,7 @@
     </ul>
     <div class="select">
       <select class="category_select">
-        <option value="" selected disabled>Browse products...</option>
+        <option value="" selected disabled>Filter prints</option>
         <option value="/products">View all</option>
         {% for category in categories.active %}
           <option value="/category/{{ category.permalink }}">{{ category.name }}</option>

@@ -18,18 +18,18 @@
       <div class="item_subtotal">
         Subtotal <span>{{ cart.total | money: theme.money_format }}</span>
       </div>
-      <a class="button view_bag" href="/cart">View your bag</a>
+      <a class="button view_bag" href="/cart">View your cart</a>
     </div>
   {% else %}
     <div>
-      Your bag is empty
+      Your cart is empty
     </div>
     <a class="button view_bag" href="/products">Start shopping</a>
   {% endif %}
 </div>
 
 {% if cart.items != blank %}
-  <h1>Your bag</h1>
+  <h1>Your cart</h1>
   <form method="post" action="/cart" id="cart_form" class="cart_form">
     {% if errors != blank %}
       <ul class="errors">
@@ -74,7 +74,7 @@
     <p><a class="button" href="/products">Start shopping</a></p>
   </div>
 {% else %}
-  <h1>Your bag is empty</h1>
+  <h1>Your cart is empty</h1>
   <div class="cart_empty_message">
     <p><svg viewBox="0 0 30 30"><path d="M22.7 8c-.9-3.4-4-6-7.7-6S8.2 4.6 7.3 8H2l3 20h20l3-20h-5.3zM15 4c2.6 0 4.8 1.7 5.6 4H9.3c.9-2.3 3.1-4 5.7-4zm8.3 22H6.7L4.3 10H7v3h2v-3h12v3h2v-3h2.7l-2.4 16z"/></svg></p>
     <p><a class="button" href="/products">Start shopping</a></p>

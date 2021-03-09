@@ -21,7 +21,7 @@ var processUpdate = function(input, item_id, new_val, cart) {
   if (item_count == 0) {
     $('.cart_form').slideUp('fast',function() {
       $('.cart_empty_message').fadeIn('fast');
-      $('h1').html('Your bag is empty');
+      $('h1').html('Your cart is empty');
       $('.cart_value').fadeOut('fast');
       $('.cart_value').html('0');
       $("html, body").animate({ scrollTop: 0 }, "fast");
@@ -289,7 +289,10 @@ $(document).click(function(e) {
     }
   }
 });
-
+$('#close_mini_cart').click(function(e) {
+    $('.mini_cart').hide();
+    $('body').removeClass('mini_cart--open');
+});
 $(document).ready(function() {
   setTimeout(function() {
     center_featured_categories();
