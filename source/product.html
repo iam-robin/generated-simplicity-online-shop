@@ -27,17 +27,24 @@
 </div>
 
 <div class="product_images">
-  {% for image in product.images %}
-    <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
-  {% endfor %}
-  <!-- <img src="{{ product.image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
-  {% if product.images.size > 1 %}
-    <ul class="product_thumbnails">
+  <!-- Mobile Slider -->
+  <div class="mobile_images swiper-container">
+    <div class="swiper-wrapper">
       {% for image in product.images %}
-        <li{% if forloop.index == 1 %} class="active"{% endif %}><a href="{{ image | product_image_url | constrain: 1200 }}"><img src="{{ image | product_image_url | constrain: 300 }}" alt="Image of {{ product.name | escape }}"></a></li>
+        <div class="swiper-slide">
+          <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
+        </div>
       {% endfor %}
-    </ul>
-  {% endif %} -->
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Desktop View -->
+  <div class="desktop_images">
+    {% for image in product.images %}
+      <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
+    {% endfor %}
+  </div>
 </div>
 
 <div class="product_detail">
@@ -66,7 +73,7 @@
 		{% endif %}
 	</div>
 
-  <ul class="product_metainfo">
+  <!-- <ul class="product_metainfo">
     <li>
       <span>Paper</span>
       <span>fine art paper 308 gsm</span>
@@ -83,7 +90,7 @@
       <span>Edition</span>
       <span>20 limited Prints</span>
     </li>
-  </ul>
+  </ul> -->
 
 	{% if product.status == 'active' %}
     <form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
