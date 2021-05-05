@@ -518,13 +518,14 @@ h1 {
   }
 }
 
-h2.home_faq {
+h2.home_faq,
+h2.home_shop {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.4;
   color: $color-black;
   margin-bottom: 144px;
-  max-width: 655px;
+  max-width: 600px;
 
   a {
     display: inline-block;
@@ -549,6 +550,12 @@ h2.home_faq {
       }
     }
   }
+}
+
+h2.home_shop {
+  margin-bottom: 0;
+  margin-top: 80px;
+  max-width: 490px;
 }
 
 h3.featured_products {

@@ -4,4 +4,26 @@
 footer.footer {
   background-color: $color-grey-light;
   color: $color-black;
+  font-size: 12px;
+}
+
+.footer {
+  &__container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+
+  &__left,
+  &__right {
+    width: 50%;
+  }
+  
+  &__left {
+    text-align: left;
+  }
+
+  &__right {
+    text-align: right;
+  }
 }
