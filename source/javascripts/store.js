@@ -449,13 +449,3 @@ function disableSelectOption(select_option, type) {
     }
   }
 }
-
-var swiper = new Swiper('.swiper-container', {
-  cssMode: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },
-  mousewheel: true,
-  keyboard: true,
-});

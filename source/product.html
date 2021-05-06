@@ -2,61 +2,60 @@
 <p><a href="/products">Shop</a> / {{ product.name }}</p>
 {% if product.previous_product or product.next_product %}
   <ul class="previous_next">
-    {% if product.previous_product %}
-      <li class="previous_product">
-        <a href="{{ product.previous_product.url }}" title="View Previous Product">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.8125 7L2.1875 7" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6.125 10.9375L2.1875 7L6.125 3.0625" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </li>
-    {% endif %}
-    {% if product.next_product %}
-      <li class="next_product">
-        <a href="{{ product.next_product.url }}" title="View Next Product">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.1875 7H11.8125" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7.875 3.0625L11.8125 7L7.875 10.9375" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>            
-        </a>
-      </li>
-    {% endif %}
+	{% if product.previous_product %}
+	  <li class="previous_product">
+		<a href="{{ product.previous_product.url }}" title="View Previous Product">
+		  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M11.8125 7L2.1875 7" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M6.125 10.9375L2.1875 7L6.125 3.0625" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+		  </svg>
+		</a>
+	  </li>
+	{% endif %}
+	{% if product.next_product %}
+	  <li class="next_product">
+		<a href="{{ product.next_product.url }}" title="View Next Product">
+		  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M2.1875 7H11.8125" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M7.875 3.0625L11.8125 7L7.875 10.9375" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+		  </svg>            
+		</a>
+	  </li>
+	{% endif %}
   </ul>
 {% endif %}
 </div>
 
 <div class="product_images">
   <!-- Mobile Slider -->
-  <div class="mobile_images swiper-container">
-    <div class="swiper-wrapper">
-      {% for image in product.images %}
-        <div class="swiper-slide">
-          <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
-        </div>
-      {% endfor %}
-    </div>
-    <div class="swiper-pagination"></div>
+  <div class="mobile_images slider">
+	<div class="slides">
+		{% for image in product.images %}
+			<div>
+				<img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
+			</div>
+		{% endfor %}
+	</div>
   </div>
 
   <!-- Desktop View -->
   <div class="desktop_images">
-    {% for image in product.images %}
-      <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
-    {% endfor %}
+	{% for image in product.images %}
+	  <img src="{{ image | product_image_url | constrain: 1200 }}" alt="Image of {{ product.name | escape }}" class="primary_image">
+	{% endfor %}
   </div>
 </div>
 
 <div class="product_detail">
   <h1>{{ product.name }}</h1>
   <h2>
-    <span class="product_price">
-      {% if product.variable_pricing %}
-        {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-      {% else %}
-        {{ product.default_price | money: theme.money_format }}
-      {% endif %}
-    </span>
+	<span class="product_price">
+	  {% if product.variable_pricing %}
+		{{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+	  {% else %}
+		{{ product.default_price | money: theme.money_format }}
+	  {% endif %}
+	</span>
 		{% case product.status %}
 			{% when 'active' %}
 				{% if product.on_sale %}<span class="small_status {{ product.css_class }}">- On sale</span>{% endif %}
@@ -74,66 +73,66 @@
 	</div>
 
   <!-- <ul class="product_metainfo">
-    <li>
-      <span>Paper</span>
-      <span>fine art paper 308 gsm</span>
-    </li>
-    <li>
-      <span>Color</span>
-      <span>light permanent marker</span>
-    </li>
-    <li>
-      <span>Size</span>
-      <span>210 mm x 297 mm (DIN A4)</span>
-    </li>
-    <li>
-      <span>Edition</span>
-      <span>20 limited Prints</span>
-    </li>
+	<li>
+	  <span>Paper</span>
+	  <span>fine art paper 308 gsm</span>
+	</li>
+	<li>
+	  <span>Color</span>
+	  <span>light permanent marker</span>
+	</li>
+	<li>
+	  <span>Size</span>
+	  <span>210 mm x 297 mm (DIN A4)</span>
+	</li>
+	<li>
+	  <span>Edition</span>
+	  <span>20 limited Prints</span>
+	</li>
   </ul> -->
 
 	{% if product.status == 'active' %}
-    <form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
-      <input type="hidden" name="utf8" value='✓'>
-      {% if product.has_default_option %}
-        {{ product.option | hidden_option_input }}
-      {% else %}
-        {% if product.has_option_groups %}
-          <div class="product_option_groups">
-            <input id="option" name="cart[add][id]" type="hidden" value="0">
-            {% for option_group in product.option_groups %}
-              <div class="select">
-                <select data-unavailable-text="(Unavailable)" data-sold-text="(Sold out)" data-group-id="{{ option_group.id }}" data-group-name="{{ option_group.name | escape }}" class="product_option_group" name="option_group[{{ option_group.id }}]" aria-label="Select {{ option_group.name | escape }}">
-                  <option value="0" disabled="disabled" selected>Select {{ option_group.name }}</option>
-                  {% for value in option_group.values %}
-                    <option value="{{ value.id }}" data-name="{{ value.name | escape }}">{{ value.name }}</option>
-                  {% endfor %}
-                </select>
-                <svg viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="select">
-            <select class="product_option_select" id="option" name="cart[add][id]" aria-label="Select option">
-              <option value="0" disabled="disabled" selected>Select option</option>
-              {% for option in product.options %}
-                <option value="{{ option.id }}" data-price="{{ option.price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }} {% if option.sold_out %} (Sold out){% endif %}</option>
-              {% endfor %}
-            </select>
-            <svg viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
-          </div>
-        {% endif %}
-      {% endif %}
-      <button class="button add-to-cart-button" name="submit" type="submit" title="Add to cart" data-added-text="Added!" data-adding-text="Adding..." data-add-title="Add to bag" data-sold-title="Sold out"{% if product.has_default_option %}{% else %}disabled="disabled"{% endif %}>
-        <span class="status_text">Add to cart</span>
-      </button>
-      {{ store | instant_checkout_button: 'dark', '44px' }}
-      {% if product.has_option_groups %}
-        <div class="reset-selection-button-container">
-          <button class="button minimal-button reset-selection-button" title="Reset selection" type="reset">Reset selection</button>
-        </div>
-      {% endif %}
-    </form>
+	<form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
+	  <input type="hidden" name="utf8" value='✓'>
+	  {% if product.has_default_option %}
+		{{ product.option | hidden_option_input }}
+	  {% else %}
+		{% if product.has_option_groups %}
+		  <div class="product_option_groups">
+			<input id="option" name="cart[add][id]" type="hidden" value="0">
+			{% for option_group in product.option_groups %}
+			  <div class="select">
+				<select data-unavailable-text="(Unavailable)" data-sold-text="(Sold out)" data-group-id="{{ option_group.id }}" data-group-name="{{ option_group.name | escape }}" class="product_option_group" name="option_group[{{ option_group.id }}]" aria-label="Select {{ option_group.name | escape }}">
+				  <option value="0" disabled="disabled" selected>Select {{ option_group.name }}</option>
+				  {% for value in option_group.values %}
+					<option value="{{ value.id }}" data-name="{{ value.name | escape }}">{{ value.name }}</option>
+				  {% endfor %}
+				</select>
+				<svg viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+			  </div>
+			{% endfor %}
+		  </div>
+		{% else %}
+		  <div class="select">
+			<select class="product_option_select" id="option" name="cart[add][id]" aria-label="Select option">
+			  <option value="0" disabled="disabled" selected>Select option</option>
+			  {% for option in product.options %}
+				<option value="{{ option.id }}" data-price="{{ option.price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }} {% if option.sold_out %} (Sold out){% endif %}</option>
+			  {% endfor %}
+			</select>
+			<svg viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+		  </div>
+		{% endif %}
+	  {% endif %}
+	  <button class="button add-to-cart-button" name="submit" type="submit" title="Add to cart" data-added-text="Added!" data-adding-text="Adding..." data-add-title="Add to bag" data-sold-title="Sold out"{% if product.has_default_option %}{% else %}disabled="disabled"{% endif %}>
+		<span class="status_text">Add to cart</span>
+	  </button>
+	  {{ store | instant_checkout_button: 'dark', '44px' }}
+	  {% if product.has_option_groups %}
+		<div class="reset-selection-button-container">
+		  <button class="button minimal-button reset-selection-button" title="Reset selection" type="reset">Reset selection</button>
+		</div>
+	  {% endif %}
+	</form>
 	{% endif %}
 </div>
