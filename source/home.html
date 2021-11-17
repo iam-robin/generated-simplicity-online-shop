@@ -1,11 +1,36 @@
-{% if theme.home_tagline != blank %}
-  <div class="home_tagline">
-    {{ theme.home_tagline }}
+<div class="infoteaser">
+  <div class="infoteaser__box">
+    <div class="infoteaser__iconContainer">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 0.999998L1.04958 6.95042L7 12.9008" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 12.9009L18.9504 6.95043L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h4>Generated</h4>
+    </div>
+    <p>All prints have one thing in common: they are generated based on self-written algorithms.</p>
   </div>
-{% endif %}
+  <div class="infoteaser__box">
+    <div class="infoteaser__iconContainer">
+      <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.896362 12C0.896362 12 2.5488 8.8 9.03014 8.8C15.5115 8.8 17.1639 12 17.1639 12V14.4C17.1639 15.7256 16.0201 16.8 14.5954 16.8H3.46492C2.04622 16.8 0.896362 15.7224 0.896362 14.4V12ZM2.60874 14.4C2.60874 14.84 2.99317 15.2 3.46492 15.2H14.5954C15.0714 15.2 15.4515 14.844 15.4515 14.4V12.4976C15.2452 12.2392 14.943 11.9704 14.5457 11.7104C13.3111 10.9032 11.5216 10.3992 9.03014 10.3992C6.53864 10.3992 4.74921 10.9024 3.51458 11.7104C3.11731 11.9704 2.81508 12.2392 2.60874 12.4976V14.4ZM11.1706 3.6C11.1706 2.4952 10.2125 1.6 9.03014 1.6C7.84775 1.6 6.88967 2.4952 6.88967 3.6V4C6.88967 4.8808 7.66024 5.6 8.60205 5.6H9.45824C10.4052 5.6 11.1706 4.8864 11.1706 4.0024V3.6ZM12.883 4C12.883 5.768 11.1304 7.2 9.45824 7.2H8.60205C6.71844 7.2 5.1773 5.7672 5.1773 4V3.6C5.1773 1.612 6.90252 0 9.03014 0C11.1578 0 12.883 1.612 12.883 3.6V4Z" fill="black"/>
+      </svg>
+      <h4>Handcrafted</h4>
+    </div>
+    <p>Whether using a pen plotter, linoleum printing or other techniques, the prints are made individually with a lot of heart.</p>
+  </div>
+  <div class="infoteaser__box">
+    <div class="infoteaser__iconContainer">
+      <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.900611 1.65411C0.898839 0.741286 1.68269 0.00225094 2.66672 0.00390611L6.90307 0.0105279C8.38132 -0.0954031 10.4273 0.609699 11.4884 1.60115L17.8177 7.51508C18.8717 8.4999 18.8752 10.0938 17.8212 11.0778L12.7523 15.8141C11.7001 16.7965 10.0004 16.8014 8.93932 15.8108L2.61003 9.89687C1.55604 8.91204 0.793439 6.9937 0.907696 5.61329L0.900611 1.65577V1.65411ZM3.86331 8.72501L10.1926 14.6389C10.5593 14.9816 11.1385 14.9816 11.5008 14.6422L16.5697 9.90597C16.9302 9.56915 16.9293 9.02377 16.5662 8.68446L10.2369 2.77053C9.54338 2.12253 8.00578 1.59039 7.09704 1.65411L3.55509 1.65246C3.06617 1.65246 2.66937 2.01908 2.66937 2.48004L2.66849 5.79287C2.60029 6.63701 3.17423 8.08197 3.86331 8.72501ZM6.21133 6.62046C7.19004 6.62046 7.98275 5.87977 7.98275 4.96528C7.98275 4.0508 7.19004 3.31011 6.21133 3.31011C5.23262 3.31011 4.43991 4.0508 4.43991 4.96528C4.43991 5.87977 5.23262 6.62046 6.21133 6.62046Z" fill="black"/>
+      </svg>
+      <h4>Limited</h4>
+    </div>
+    <p>To emphasize the quality and uniqueness, all prints are limited to a fixed number of pieces, numbered and signed.</p>
+  </div>
+</div>
 
 <h2 class="home_faq">
-  But what is actually generated art?<br> Learn more about the <a href="/faq">process</a> behind the prints.
+  Want to know more about the process?<br> Check out the <a href="/faq">FAQ</a> for more informations.
 </h2>
 
 {% if theme.featured_products > 0 %}
@@ -41,6 +66,6 @@
   {% endpaginate %}
 {% endif %}
 
-<h2 class="home_shop">
-  Curious? Check out the <a href="/products">shop</a> to see all available prints.
-</h2>
+<!-- <div class="behindTheScenes">
+  <h3 class="behindTheScenes__headline">Behind the Scenes</h3>
+</div> -->

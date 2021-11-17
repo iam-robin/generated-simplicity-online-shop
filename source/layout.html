@@ -76,12 +76,18 @@
 					</svg>
 				</h1>
 				<p>A collaboration between a human and a machine, creating minimalist and algorithm driven art together.</p>
-				<a href="/products" class="stage__productButton">shop now</a>
+				<a href="/products" class="stage__productButton">
+          Shop
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.1875 7H11.8125" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.875 3.0625L11.8125 7L7.875 10.9375" stroke="white" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
 			</div>
 			<div class="stage__posterContainer">
-				<img src="{{ 'plot1.svg' | theme_image_url }}" alt="plot 1">
-				<img src="{{ 'plot1.svg' | theme_image_url }}" alt="plot 2">
-				<img src="{{ 'plot1.svg' | theme_image_url }}" alt="plot 3">
+				<img src="https://i.ibb.co/Tr16hnh/p2.jpg" alt="plot 1">
+				<img src="https://i.ibb.co/Tr16hnh/p2.jpg" alt="plot 2">
+				<img src="https://i.ibb.co/Tr16hnh/p2.jpg" alt="plot 3">
 			</div>
     </div>
   </div>
@@ -90,7 +96,7 @@
     {% if page.category == 'custom' %}
       <h1>{{ page.name }}</h1>
       <div class="custom_page">{{ page_content | paragraphs }}</div>
-    {% else %}
+      {% else %}
       {{ page_content }}
     {% endif %}
   </section>
@@ -105,7 +111,7 @@
         </ul>
       </div>
       <div class="footer__right">
-        <span>c Generated Simplicity 2021</span>
+        <span>© Generated Simplicity 2021</span>
         <br>
         <span class="credit">{{ bigcartel_credit }}</span>
       </div>
@@ -211,5 +217,30 @@
       Product.find('{{ product.permalink }}', processProduct)
     </script>
   {% endif %}
+  <script>
+    $('#close_mini_cart').click(function(e) {
+      $('.mini_cart').hide();
+      $('body').removeClass('mini_cart--open');
+    });
+  </script>
+  <script>
+    if ($('.content').length) {
+    var waypoint = new Waypoint({
+      element: $('.content'),
+      handler: function(direction) {
+        var screenWidth = Waypoint.viewportWidth();
+        if (screenWidth > 765) {
+          if (direction === 'down') {
+            $('header').addClass('background_overlay');
+          }
+          else {
+            $('header').removeClass('background_overlay');
+          }
+        }
+      },
+      offset: 88
+    });
+  }
+  </script>
 </body>
 </html>
